@@ -46,7 +46,7 @@ elif [ -f tmp/output ]; then # Writes an email in a local file
         CWD=$(pwd)
         HOSTNAME=$(hostname)
         DOMAINNAME=$(dnsdomainname)
-        echo "To: noc@geant.org" >> tmp/email
+        echo "To: noc@company.org" >> tmp/email
         echo "Subject: ISIS Overload Timeout Report" >> tmp/email
 	    echo "" >> tmp/email
         if [ -f tmp/output ]; then
@@ -58,12 +58,12 @@ elif [ -f tmp/output ]; then # Writes an email in a local file
 
         echo "" >> tmp/email
         echo "--------------------------------------------" >> tmp/email
-	    echo "Ref: https://wiki.geant.org/display/GOC/ISIS+Overload+Checking+Script" >> tmp/email
+	    echo "Ref: https://wiki.wiki.org/display/OC/ISIS+Overload+Checking+Script" >> tmp/email
         echo "--------------------------------------------" >> tmp/email
         echo "This email was generated via ${CWD}/${0} running on ${HOSTNAME}" >> tmp/email
-        echo "For support issues with this script, contact oc@geant.org / OC team." >> tmp/email
+        echo "For support issues with this script, contact oc@gmail.org / OC team." >> tmp/email
 
-        cat tmp/email | msmtp --host=mail.geant.net --port=25 -t -f neteam@neteam-server01.geant.org& # Sends email to GOC using internal SMTP server
+        cat tmp/email | msmtp --host=mail.company.net --port=25 -t -f neteam@neteam-server01.company.org& # Sends email to GOC using internal SMTP server
 else
     exit 0
 fi
